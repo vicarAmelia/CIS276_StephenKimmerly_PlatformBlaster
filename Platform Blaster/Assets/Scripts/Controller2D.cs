@@ -26,7 +26,7 @@ public class Controller2D : MonoBehaviour
 
         for (int i = 0; i < verticalRayCount; i++)
         {
-            Debug.DrawRay(raycastOrigins.bottomLeft + Vector2.right * i, Vector2.up * -2,Color.red);
+            Debug.DrawRay(raycastOrigins.bottomLeft + Vector2.right * verticalRaySpacing * i, Vector2.up * -2,Color.red);
         }
     }
 
