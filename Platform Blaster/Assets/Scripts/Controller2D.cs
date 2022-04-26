@@ -14,7 +14,7 @@ public class Controller2D : RaycastController
         base.Start ();
     }
 
-    public void Move(Vector3 velocity)
+    public void Move(Vector3 velocity, bool standingOnPlatform = false)
     {
         UpdateRaycastOrigins ();
         collisions.Reset ();
@@ -35,6 +35,11 @@ public class Controller2D : RaycastController
         }
 
         transform.Translate (velocity);
+
+        if (standingOnPlatform)
+        {
+            collisions.below = true;
+        }
     }
      void HorizontalCollisions(ref Vector3 velocity)
     {
@@ -50,6 +55,11 @@ public class Controller2D : RaycastController
 
             if (hit)
             {
+                if (hit.distance == 0)
+                {
+                    continue;
+                }
+
                 float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
                 if (i == 0 && slopeAngle <= maxClimbAngle)
@@ -62,8 +72,8 @@ public class Controller2D : RaycastController
                     float distanceToSlopeStart = 0;
                     if (slopeAngle != collisions.slopeAngleOld)
                     {
-                    distanceToSlopeStart = hit.distance-skinWidth;
-                    velocity.x -= distanceToSlopeStart * directionX;
+                        distanceToSlopeStart = hit.distance-skinWidth;
+                        velocity.x -= distanceToSlopeStart * directionX;
                     }
                     ClimbSlope(ref velocity, slopeAngle);
                     velocity.x += distanceToSlopeStart * directionX;
@@ -71,16 +81,16 @@ public class Controller2D : RaycastController
                 if (!collisions.climbingSlope || slopeAngle > maxClimbAngle)
                 {
 
-                velocity.x = (hit.distance - skinWidth) * directionX;
-                rayLength = hit.distance;
+                    velocity.x = (hit.distance - skinWidth) * directionX;
+                    rayLength = hit.distance;
 
-                if (collisions.climbingSlope)
-                {
-                    velocity.y = Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(velocity.x);
-                }
+                    if (collisions.climbingSlope)
+                    {
+                        velocity.y = Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(velocity.x);
+                    }
 
-                collisions.left = directionX == -1;
-                collisions.right = directionX == 1;
+                    collisions.left = directionX == -1;
+                    collisions.right = directionX == 1;
                 }
             }
         }

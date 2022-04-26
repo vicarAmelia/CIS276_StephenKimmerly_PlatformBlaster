@@ -7,7 +7,7 @@ public class PlatformController : RaycastController
     public LayerMask passengerMask;
     public Vector3 move;
 
-    List<PassengerMovement> PassengerMovement;
+    List<PassengerMovement> passengerMovement;
     
     public override void Start()
     {
@@ -34,7 +34,7 @@ public class PlatformController : RaycastController
         {
             if (passenger.moveBeforePlatform == beforeMovePlatform)
             {
-                passenger.transform.GetComponent<Controller2D>().Move(passenger.velocity);
+                passenger.transform.GetComponent<Controller2D>().Move(passenger.velocity, passenger.standingOnPlatform);
             }
         }
     }
