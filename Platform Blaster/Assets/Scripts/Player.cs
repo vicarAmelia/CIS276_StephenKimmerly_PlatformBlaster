@@ -26,6 +26,10 @@ public class Player : MonoBehaviour
     float velocityXSmoothing;
 
     Controller2D controller;
+
+    Vector2 directionalInput;
+    bool wallSliding;
+    int wallDirX;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,57 +40,22 @@ public class Player : MonoBehaviour
         minJumpVelocity = Mathf.Sqrt(2*Mathf.Abs(gravity) * minJumpHeight);
         print ("Gravity: " + gravity + " Jump Velocity: " + maxJumpVelocity);
     }
-
-    void Update()
+    
+    public void SetDirectionInput (Vector2 input) 
     {
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw ("Vertical"));
-        int wallDirX = (controller.collisions.left) ? -1 : 1;
+        directionalInput = input;
+    }
 
-        float targetVelocityX = input.x * moveSpeed;
-        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX,ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
-
-        bool wallSliding = false;
-        if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0)
-        {
-            wallSliding = true;
-
-            if (velocity.y < -wallSlideSpeedMax)
+    public void OnJumpInputDown()
+    {
+         if (wallSliding)
             {
-                velocity.y = -wallSlideSpeedMax;
-            }
-
-            if (timeToWallUnstick > 0)
-            {
-                velocityXSmoothing = 0;
-                velocity.x = 0;
-
-                if (input.x != wallDirX && input.x != 0)
-                {
-                    timeToWallUnstick -= Time.deltaTime;
-                }
-                else
-                {
-                    timeToWallUnstick = wallStickTime;
-                }
-            }
-            else 
-            {
-                timeToWallUnstick = wallStickTime;
-            }
-        }
-
-       
-
-        if (Input.GetKeyDown (KeyCode.Space))
-        {
-            if (wallSliding)
-            {
-                if (wallDirX == input.x)
+                if (wallDirX == directionalInput.x)
                 {
                     velocity.x = -wallDirX * wallJumpClimb.x;
                     velocity.y = wallJumpClimb.y;
                 }
-                else if (input.x == 0)
+                else if (directionalInput.x == 0)
                 {
                     velocity.x = -wallDirX * wallJumpOff.x;
                     velocity.y = wallJumpOff.y;
@@ -101,18 +70,55 @@ public class Player : MonoBehaviour
             {
                 velocity.y = maxJumpVelocity;
             }
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
+    }
+
+    public void OnJumpInputUp()
+    {
+        if (velocity.y > minJumpVelocity)
         {
-            if (velocity.y > minJumpVelocity)
-            {
             velocity.y = minJumpVelocity;
+        }
+    }
+
+    void Update()
+    {
+        wallDirX = (controller.collisions.left) ? -1 : 1;
+
+        float targetVelocityX = directionalInput.x * moveSpeed;
+        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX,ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
+
+        wallSliding = false;
+        if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0)
+        {
+            wallSliding = true;
+
+            if (velocity.y < -wallSlideSpeedMax)
+            {
+                velocity.y = -wallSlideSpeedMax;
+            }
+
+            if (timeToWallUnstick > 0)
+            {
+                velocityXSmoothing = 0;
+                velocity.x = 0;
+
+                if (directionalInput.x != wallDirX && directionalInput.x != 0)
+                {
+                    timeToWallUnstick -= Time.deltaTime;
+                }
+                else
+                {
+                    timeToWallUnstick = wallStickTime;
+                }
+            }
+            else 
+            {
+                timeToWallUnstick = wallStickTime;
             }
         }
-
         
         velocity.y += gravity * Time.deltaTime;
-        controller.Move (velocity * Time.deltaTime, input);
+        controller.Move (velocity * Time.deltaTime, directionalInput);
 
          if (controller.collisions.above || controller.collisions.below)
         {
