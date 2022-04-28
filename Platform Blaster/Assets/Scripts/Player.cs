@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent (typeof (Controller2D))]
-public class PlayerInput : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    public float jumpHeight = 4;
+    public float maxJumpHeight = 4;
+    public float minJumpHeight = 1;
     public float timeToJumpApex = .4f;
     float accelerationTimeAirborne = .2f;
     float accelerationTimeGrounded = .1f;
@@ -19,7 +20,8 @@ public class PlayerInput : MonoBehaviour
     float timeToWallUnstick;
 
     float gravity;
-    float jumpVelocity; 
+    float maxJumpVelocity;
+    float minJumpVelocity;  
     Vector3 velocity;
     float velocityXSmoothing;
 
@@ -29,9 +31,10 @@ public class PlayerInput : MonoBehaviour
     {
         controller = GetComponent<Controller2D> ();
 
-        gravity = -(2 * jumpHeight) / Mathf.Pow (timeToJumpApex, 2);
-        jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-        print ("Gravity: " + gravity + " Jump Velocity: " + jumpVelocity);
+        gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+        maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+        minJumpVelocity = Mathf.Sqrt(2*Mathf.Abs(gravity) * minJumpHeight);
+        print ("Gravity: " + gravity + " Jump Velocity: " + maxJumpVelocity);
     }
 
     void Update()
@@ -101,13 +104,20 @@ public class PlayerInput : MonoBehaviour
             }
             if (controller.collisions.below)
             {
-                velocity.y = jumpVelocity;
+                velocity.y = maxJumpVelocity;
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            if (velocity.y > minJumpVelocity)
+            {
+            velocity.y = minJumpVelocity;
             }
         }
 
         
         velocity.y += gravity * Time.deltaTime;
-        controller.Move (velocity * Time.deltaTime);
+        controller.Move (velocity * Time.deltaTime, input);
     }
 
    
