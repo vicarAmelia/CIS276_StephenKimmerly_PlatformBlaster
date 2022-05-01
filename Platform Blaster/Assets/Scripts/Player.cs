@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
 
     Vector2 directionalInput;
     bool wallSliding;
+    bool slidingDownMaxSlope;
     int wallDirX;
     // Start is called before the first frame update
     void Start()
@@ -52,7 +53,10 @@ public class Player : MonoBehaviour
 
         if (controller.collisions.above || controller.collisions.below)
         {
-            velocity.y = 0;
+            if (!controller.collisions.slidingDownMaxSlope)
+            {
+                velocity.y = 0;
+            }
         }
     }
     
@@ -136,4 +140,8 @@ public class Player : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
     }
    
+   void Flip () 
+   {
+
+   }
 }
