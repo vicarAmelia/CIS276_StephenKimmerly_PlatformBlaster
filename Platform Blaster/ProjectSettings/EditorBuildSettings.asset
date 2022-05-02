@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MegaKnightMainMenu.unity
+    guid: c0815f06d2bc4a846acb6ce734522b83
+  - enabled: 1
     path: Assets/Scenes/MegaKnight Level 1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MegaKnight LevelTwo.unity
+    guid: ba98286c5d2debf4b9fd4e7f2407208a
   m_configObjects: {}
