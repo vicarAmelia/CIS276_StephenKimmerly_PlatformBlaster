@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     Player player;
+    bool facingRight = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +28,20 @@ public class PlayerInput : MonoBehaviour
           player.OnJumpInputUp ();
       }
 
+      if (directionalInput.x > 0 && !facingRight)
+      {
+          Flip();
+      }
+      else if (directionalInput.x < 0 && facingRight)
+      {
+          Flip();
+      }
+
+    }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        transform.Rotate (0f, 180f, 0f);
     }
 }    
