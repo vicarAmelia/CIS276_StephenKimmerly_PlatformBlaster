@@ -2037,7 +2037,7 @@ Transform:
   m_GameObject: {fileID: 847925891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.73, y: -1.5959138, z: 0}
-  m_LocalScale: {x: 2.2025914, y: 2.3585975, z: 1}
+  m_LocalScale: {x: 3.1276798, y: 3.3492084, z: 1.42}
   m_Children:
   - {fileID: 1551163893}
   m_Father: {fileID: 0}
@@ -2070,9 +2070,9 @@ MonoBehaviour:
   maxJumpHeight: 4
   minJumpHeight: 1
   timeToJumpApex: 0.4
-  wallJumpClimb: {x: 0, y: 0}
-  wallJumpOff: {x: 0, y: 0}
-  wallLeap: {x: 0, y: 0}
+  wallJumpClimb: {x: 7.5, y: 16}
+  wallJumpOff: {x: 8.5, y: 7}
+  wallLeap: {x: 18, y: 17}
   wallSlideSpeedMax: 3
   wallStickTime: 0.25
 --- !u!114 &847925896
@@ -3433,6 +3433,47 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371069703}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1407546545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2070227656718921308, guid: e0deaae460243a4458e3d571ef901f5f, type: 3}
+  m_PrefabInstance: {fileID: 2070227657247296932}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1407546547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407546545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc7fbe0aae9f2c4fa7cfe0a5ca8510e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 847925893}
+  aggroRange: 5
+  moveSpeed: 2
+--- !u!50 &1407546549
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407546545}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1551163892
 GameObject:
   m_ObjectHideFlags: 0
@@ -4298,5 +4339,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2070227656718921311, guid: e0deaae460243a4458e3d571ef901f5f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e0deaae460243a4458e3d571ef901f5f, type: 3}
