@@ -16,6 +16,8 @@ public class EnemyAI : MonoBehaviour
 
     Rigidbody2D rb2d;
     bool isFacingRight;
+    bool isAggro = false;
+    bool isSearching;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +31,27 @@ public class EnemyAI : MonoBehaviour
       if (CanSeePlayer(aggroRange))
       {
           //aggro enemy
+          isAggro = true;
           ChasePlayer();
       }
       else
       {
-          StopChasingPlayer();
+          if(isAggro)
+          {
+              
+              if(!isSearching)
+              {
+                  isSearching = true;
+                  Invoke("StopChasingPlayer", 5);
+              }
+              
+          }
+          
+      }
+
+      if(isAggro)
+      {
+          ChasePlayer();
       }
       //distance to player
       /*float distToPlayer = Vector2.Distance(transform.position, player.position);
@@ -107,6 +125,8 @@ public class EnemyAI : MonoBehaviour
     void StopChasingPlayer()
     {
         //enemy stops when out of range
+        isAggro = false;
+        isSearching = false;
         rb2d.velocity = new Vector2(0, 0);
     }
 }

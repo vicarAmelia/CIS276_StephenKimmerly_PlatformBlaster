@@ -6,7 +6,8 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     Player player;
-    bool facingRight = true;
+    public bool facingRight = true;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      Vector2 directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw ("Vertical"));
+      Vector3 directionalInput = new Vector3 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw ("Vertical"));
       player.SetDirectionInput (directionalInput);
 
       if (Input.GetKeyDown (KeyCode.Space))
@@ -43,8 +44,6 @@ public class PlayerInput : MonoBehaviour
     {
         facingRight = !facingRight;
         
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        transform.localScale = new Vector3 (-1f, 1f, 1f);
     }
 }    

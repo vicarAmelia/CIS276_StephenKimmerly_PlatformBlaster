@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
 
     Controller2D controller;
 
-    Vector2 directionalInput;
+    Vector3 directionalInput;
     bool wallSliding;
     bool slidingDownMaxSlope;
     int wallDirX;
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
         }
     }
     
-    public void SetDirectionInput (Vector2 input) 
+    public void SetDirectionInput (Vector3 input) 
     {
         directionalInput = input;
     }
@@ -136,7 +136,7 @@ public class Player : MonoBehaviour
     void CalculateVelocity()
     {
         float targetVelocityX = directionalInput.x * moveSpeed;
-        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX,ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
+        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
     }
    
