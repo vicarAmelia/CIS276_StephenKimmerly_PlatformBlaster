@@ -44,6 +44,8 @@ public class PlayerInput : MonoBehaviour
     {
         facingRight = !facingRight;
         
-        transform.localScale = new Vector3 (-1f, 1f, 1f);
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }    

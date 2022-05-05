@@ -58,6 +58,8 @@ public class Player : MonoBehaviour
                 velocity.y = 0;
             }
         }
+
+
     }
     
     public void SetDirectionInput (Vector3 input) 
