@@ -12,6 +12,7 @@ public class PlayerInput : MonoBehaviour
     void Start()
     {
        player = GetComponent<Player> (); 
+       DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame

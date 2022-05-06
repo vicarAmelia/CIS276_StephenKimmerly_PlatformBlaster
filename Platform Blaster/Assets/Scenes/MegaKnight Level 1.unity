@@ -1019,7 +1019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iLevelToLoad: 0
-  sLevelToLoad: 
+  sLevelToLoad: MegaKnightLevelTwo
   useIntegerToLoadLevel: 0
 --- !u!61 &354060011
 BoxCollider2D:
