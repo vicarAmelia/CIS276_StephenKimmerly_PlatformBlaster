@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 1037296469814155091
     second: DungeonCrawl_ProjectUtumnoTileset_0
+  - first:
+      213: -505245453289762646
+    second: DungeonCrawl_ProjectUtumnoTileset_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,7 +105,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -110,6 +113,27 @@ TextureImporter:
       bones: []
       spriteID: 3571a0ab4a7356e00800000000000000
       internalID: 1037296469814155091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonCrawl_ProjectUtumnoTileset_1
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 704
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa05848efe10df8f0800000000000000
+      internalID: -505245453289762646
       vertices: []
       indices: 
       edges: []
