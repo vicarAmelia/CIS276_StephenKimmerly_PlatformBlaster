@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1930109427492589608}
   - component: {fileID: 427254228827754734}
   - component: {fileID: -1135964508595591949}
-  - component: {fileID: -7452560713109630488}
+  - component: {fileID: 7656148059579683161}
   m_Layer: 0
   m_Name: FireShot
   m_TagString: Untagged
@@ -122,7 +122,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.07500002
---- !u!114 &-7452560713109630488
+--- !u!114 &7656148059579683161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,8 +131,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 612451238623721434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdb8bdb5a6f2d134aad16d1a755ee879, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d87545bda4695f43a2bcad81dac2a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireShot: {fileID: 612451238623721434}
-  BigShot: {fileID: 0}
+  speed: 20
+  rb: {fileID: 427254228827754734}
