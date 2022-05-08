@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private float attackDamage = 10f;
     private Transform target;
+    public int health = 100;
 
     private void Update()
     {
@@ -39,11 +40,27 @@ public class EnemyAI : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag =="Player")
+        if (other.gameObject.tag == "Player")
         {
             target = null;
 
             Debug.Log(target);
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        
+        Destroy(gameObject);
     }
 }

@@ -24,7 +24,12 @@ public class PlayerHealth : MonoBehaviour
         else if (health <= 0f)
         {
             health = 0f;
-            Debug.Log("Player Respawn");
+            Die();
         }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }
