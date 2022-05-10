@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: -505245453289762646
     second: DungeonCrawl_ProjectUtumnoTileset_1
+  - first:
+      213: 4343118188143980377
+    second: Enemy
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -134,6 +137,27 @@ TextureImporter:
       bones: []
       spriteID: aa05848efe10df8f0800000000000000
       internalID: -505245453289762646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy
+      rect:
+        serializedVersion: 2
+        x: 1702
+        y: 1348
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f2cd53bfad54c30800000000000000
+      internalID: 4343118188143980377
       vertices: []
       indices: 
       edges: []

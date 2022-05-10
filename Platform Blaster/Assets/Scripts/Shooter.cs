@@ -6,6 +6,8 @@ public class Shooter : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject fireShot;
+    public AudioSource audioSource;
+    public AudioClip buttonPressedClip;
     
 
     // Update is called once per frame
@@ -14,6 +16,7 @@ public class Shooter : MonoBehaviour
       if(Input.GetButtonDown("Fire1"))
       {
           Shoot();
+          audioSource.PlayOneShot(buttonPressedClip);
       }  
     }
 
