@@ -807,10 +807,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc7fbe0aae9f2c4fa7cfe0a5ca8510e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
   attackDamage: 10
   attackSpeed: 1
   health: 100
+  speed: 3
 --- !u!50 &157246141
 Rigidbody2D:
   serializedVersion: 4
@@ -937,10 +937,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc7fbe0aae9f2c4fa7cfe0a5ca8510e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
   attackDamage: 10
   attackSpeed: 1
   health: 100
+  speed: 3
 --- !u!50 &194133808
 Rigidbody2D:
   serializedVersion: 4
@@ -1106,10 +1106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc7fbe0aae9f2c4fa7cfe0a5ca8510e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
   attackDamage: 10
   attackSpeed: 1
   health: 100
+  speed: 3
 --- !u!50 &260177619
 Rigidbody2D:
   serializedVersion: 4
@@ -1842,10 +1842,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc7fbe0aae9f2c4fa7cfe0a5ca8510e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
   attackDamage: 10
   attackSpeed: 1
   health: 100
+  speed: 3
 --- !u!50 &477312367
 Rigidbody2D:
   serializedVersion: 4
@@ -2631,10 +2631,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc7fbe0aae9f2c4fa7cfe0a5ca8510e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
   attackDamage: 10
   attackSpeed: 1
   health: 100
+  speed: 3
 --- !u!50 &695721894
 Rigidbody2D:
   serializedVersion: 4
@@ -2887,7 +2887,7 @@ GameObject:
   - component: {fileID: 914734376}
   - component: {fileID: 914734375}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Health Bar
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5077,10 +5077,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc7fbe0aae9f2c4fa7cfe0a5ca8510e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
   attackDamage: 10
   attackSpeed: 1
   health: 100
+  speed: 3
 --- !u!50 &1781666728
 Rigidbody2D:
   serializedVersion: 4
@@ -5922,10 +5922,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc7fbe0aae9f2c4fa7cfe0a5ca8510e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
   attackDamage: 10
   attackSpeed: 1
   health: 100
+  speed: 3
 --- !u!50 &2064347246
 Rigidbody2D:
   serializedVersion: 4
